@@ -8,14 +8,7 @@
 	<styleincludes/>
 	<scriptincludes/>
 </head>
-<body onload="onDeviceReady()">
-	<script type="text/javascript">
-        var onDeviceReady = function() {
-            new app.Bootstrapper();
-        };
-    </script>
-	<like-widget params="value: ko.observable(null)"></like-widget>
-
+<body>
 	<div data-bind="template: vm.currentView()"></div>
 </body>
 
