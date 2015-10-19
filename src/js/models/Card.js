@@ -22,7 +22,7 @@ goog.inherits(app.models.Card, app.base.Model);
 
 /**
  * 
- * @enum {string}
+ * @enum {number}
  */
 app.models.Card.Color = {
 	HEART: 0,
