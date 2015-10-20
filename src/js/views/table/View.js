@@ -13,8 +13,9 @@ goog.require('app.views.Table.Template');
 app.views.Table.View = function(products){
 	goog.base(this);
 
-	this.products = products;
-	this.exports.push({ref: 'products', obj: this.products});
+
+	this.hand = app.dm.deck.cards;
+
 	this.export();
 };
 goog.inherits(app.views.Table.View, app.base.View);
