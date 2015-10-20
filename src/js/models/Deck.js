@@ -14,8 +14,8 @@ app.models.Deck = function() {
 	goog.base(this);
 
 	this.cards = _.flatten(Object.keys(app.models.Card.Color).map(function(color){
-		return _.range(1, 14).map(function(number){
-			return new app.models.Card(number, color);
+		return Object.keys(app.models.Card.Number).map(function(number){
+			return new app.models.Card(app.models.Card.Number[number], app.models.Card.Color[color]);
 		});
 	}));
 };
