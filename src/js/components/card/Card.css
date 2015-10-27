@@ -19,12 +19,15 @@ card.inhand:not(.moved):hover {
 	bottom: 35px;
 }
 
-card.moved.inhand {
+player card.moved, cpu#top card.moved {
 	-webkit-transition-duration: 0.5s;
 	bottom: 200px;
+	left: 242px!important;
 }
 
-card.moved:not(.inhand) {
+
+cpu#left card.moved, cpu#right card.moved {
 	-webkit-transition-duration: 0.5s;
-	bottom: 200px;
+	bottom: 310px;
+	left: 242px!important;
 }
