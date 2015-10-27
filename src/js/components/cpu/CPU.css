@@ -2,6 +2,7 @@ cpu {
 	display: block;
 	position: absolute;
 	width: 558px;
+	height: 126px;
 }
 
 cpu#left {

@@ -20,6 +20,6 @@ goog.inherits(app.components.Player.Template, app.base.Template);
  */
 app.components.Player.Template.prototype.templates_base = function(){
 	return '<player data-bind="foreach: {data: cards, as:\'card\'}">\
-				<!-- ko component: {name: \'card-component\', params: {parent: $parent, card: card, open: ko.observable(true), inhand: ko.observable(true)}} --><!-- /ko -->\
+				<!-- ko component: {name: \'card-component\', params: {parent: $parent, card: card, open: ko.observable(true), inhand: ko.observable(true), index: $index}} --><!-- /ko -->\
 			</player>';
 };

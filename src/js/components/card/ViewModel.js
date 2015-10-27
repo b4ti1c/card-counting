@@ -15,6 +15,7 @@ app.components.Card.ViewModel = function(params, element){
 
 	if(!this.open) this.open = ko.observable(false);
 	if(!this.inhand) this.inhand = ko.observable(false);
+	if(!this.index) this.index = ko.observable(0);
 
 	this.moved = ko.observable(false);
 

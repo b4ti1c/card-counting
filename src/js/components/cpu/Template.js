@@ -20,6 +20,6 @@ goog.inherits(app.components.CPU.Template, app.base.Template);
  */
 app.components.CPU.Template.prototype.templates_base = function(){
 	return '<cpu data-bind="attr: {id: position}, foreach: {data: cards, as:\'card\'}">\
-				<!-- ko component: {name: \'card-component\', params: {parent: $parent, card: card}} --><!-- /ko -->\
+				<!-- ko component: {name: \'card-component\', params: {parent: $parent, card: card, index: $index}} --><!-- /ko -->\
 			</cpu>';
 };

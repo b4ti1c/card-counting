@@ -8,21 +8,23 @@ cardimg {
 }
 
 card {
-	display: inline-block;
-	height: 117px;
-	width: 30px;
+	display: block;
+	height: 116px;
+	width: 77px;
+	bottom: 0;
+	position: absolute;
 }
 
 card.inhand:not(.moved):hover {
-	margin-bottom: 35px;
+	bottom: 35px;
 }
 
 card.moved.inhand {
 	-webkit-transition-duration: 0.5s;
-	margin-bottom: 200px;
+	bottom: 200px;
 }
 
 card.moved:not(.inhand) {
 	-webkit-transition-duration: 0.5s;
-	padding-bottom: 200px;
+	bottom: 200px;
 }
