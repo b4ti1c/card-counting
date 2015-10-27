@@ -22,12 +22,11 @@ card.inhand:not(.moved):hover {
 player card.moved, cpu#top card.moved {
 	-webkit-transition-duration: 0.5s;
 	bottom: 200px;
-	left: 242px!important;
+	left: 241px!important;
 }
-
 
 cpu#left card.moved, cpu#right card.moved {
 	-webkit-transition-duration: 0.5s;
 	bottom: 310px;
-	left: 242px!important;
+	left: 241px!important;
 }
