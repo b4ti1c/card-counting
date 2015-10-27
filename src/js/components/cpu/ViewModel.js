@@ -16,3 +16,15 @@ app.components.CPU.ViewModel = function(params, element){
 	this.cards = app.gm.cpu[this.position].cards;
 };
 goog.inherits(app.components.CPU.ViewModel, app.base.ViewModel);
+
+
+app.components.CPU.ViewModel.prototype.bindModelEvents = function(){
+	this.listeners = [];
+
+	this.listeners.push(goog.events.listen(app.gm.mm, app.managers.MoveManager.Events.TURN, this.onTurnEvent, false, this));
+};
+
+
+app.components.CPU.ViewModel.prototype.onTurnEvent = function(evt){
+	console.log(evt);
+};

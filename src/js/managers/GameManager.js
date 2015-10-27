@@ -1,6 +1,7 @@
 goog.provide('app.managers.GameManager');
 goog.require('app.base.Manager');
 goog.require('app.models.Hand');
+goog.require('app.managers.MoveManager');
 
 
 /**
@@ -9,6 +10,9 @@ goog.require('app.models.Hand');
  */
 app.managers.GameManager = function(){
 	goog.base(this);
+
+	this.mm = app.managers.MoveManager.getInstance();
+	this.setTrump(app.models.Card.Color.SPADE);
 
 	this.cpu = {};
 	this.cpu['left'] = new app.models.Hand();
@@ -31,6 +35,8 @@ app.managers.GameManager.prototype.init = function(){
 		this.cpu['right'].load(app.dm.getCard());
 		this.player.load(app.dm.getCard());
 	}
+
+	this.mm.init();
 };
 
 
@@ -44,6 +50,23 @@ app.managers.GameManager.prototype.restart = function(){
 };
 
 
+/**
+ * 
+ * @param {app.models.Card.Color} color [description]
+ */
+app.managers.GameManager.prototype.setTrump = function(color){
+	this.trump = color;
+};
+
+
 app.managers.GameManager.prototype.forceMove = function(){
 
+};
+
+
+app.managers.GameManager.Id = {
+	CPU_LEFT: 'left',
+	CPU_TOP: 'top',
+	CPU_RIGHT: 'right',
+	PLAYER: 'bottom'
 };
