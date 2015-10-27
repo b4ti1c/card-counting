@@ -19,5 +19,10 @@ goog.inherits(app.components.Card.Template, app.base.Template);
  * @override
  */
 app.components.Card.Template.prototype.templates_base = function(){
-	return '<cardimg data-bind="style: {background: \'url(rsc/img/cards.png) \' + imgLocation}, click: show"></cardimg>';
+	return '<card data-bind="css: {inhand: inhand(), moved: moved()}, click: show">\
+				<cardimg data-bind="style: {\
+					background: open() ? \'url(/rsc/img/cards.png) \' + imgLocation\
+					: \'url(rsc/img/cards.png) 154px 0\'}">\
+				</cardimg>\
+			</card>';
 };

@@ -19,7 +19,11 @@ goog.inherits(app.views.Table.Template, app.base.Template);
  * @override
  */
 app.views.Table.Template.prototype.templates_base = function(){
-	return '<cardtable data-bind="foreach: {data: hand, as: \'card\'}">\
-			    <card class="dib" params="parent: $parent, card: card"></card>\
+	return '<cardtable>\
+			<!-- ko component: {name: \'cpu-component\', params: {position: \'left\'}}--><!-- /ko -->\
+			<!-- ko component: {name: \'cpu-component\', params: {position: \'top\'}}--><!-- /ko -->\
+			<!-- ko component: {name: \'cpu-component\', params: {position: \'right\'}}--><!-- /ko -->\
+			<!-- ko component: \'player-component\' --><!-- /ko -->\
+			<redeal data-bind="click: redeal">Deal!</redeal>\
 			</cardtable>';
 };

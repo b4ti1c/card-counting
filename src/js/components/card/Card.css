@@ -2,4 +2,27 @@ cardimg {
 	display: block;
 	height: 232px;
 	width: 154px;
+
+	-webkit-transform:scale(0.5);
+	-webkit-transform-origin: 0 0;
+}
+
+card {
+	display: inline-block;
+	height: 117px;
+	width: 30px;
+}
+
+card.inhand:not(.moved):hover {
+	margin-bottom: 35px;
+}
+
+card.moved.inhand {
+	-webkit-transition-duration: 0.5s;
+	margin-bottom: 200px;
+}
+
+card.moved:not(.inhand) {
+	-webkit-transition-duration: 0.5s;
+	padding-bottom: 200px;
 }

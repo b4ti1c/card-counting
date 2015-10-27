@@ -5,6 +5,7 @@ goog.require('app.managers.ViewManager');
 goog.require('app.factories.ViewFactory');
 goog.require('app.MainViewModel');
 goog.require('app.managers.DeckManager');
+goog.require('app.managers.GameManager');
 
 
 
@@ -21,6 +22,7 @@ app.Application = function() {
 
 
 	app.dm = app.managers.DeckManager.getInstance();
+	app.gm = app.managers.GameManager.getInstance();
 
 	ko.applyBindings(new app.MainViewModel());
 };

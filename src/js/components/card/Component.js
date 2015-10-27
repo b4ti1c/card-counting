@@ -19,7 +19,7 @@ goog.inherits(app.components.Card.Component, app.base.Component);
 /**
  * @override
  */
-app.components.Card.Component.prototype.name = 'card';
+app.components.Card.Component.prototype.name = 'card-component';
 
 
 /**

@@ -1,0 +1,9 @@
+player {
+	display: block;
+	position: absolute;
+	width: 557px;
+	margin: 0 auto;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}

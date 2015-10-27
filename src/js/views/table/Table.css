@@ -1,3 +1,32 @@
 cardtable {
 	display: block;
+	position: relative;
+	width: 1024px;
+	height: 768px;
+	background: url(/rsc/img/table.jpg);
+	background-size: cover;
+}
+
+redeal {
+	position: absolute;
+	display: block;
+
+	bottom: 20px;
+	right: 20px;
+
+	color: black;
+	background-color: beige;
+
+	padding: 10px;
+	font-size: 27px;
+
+	border-radius: 10px;
+}
+
+redeal:hover {
+	background-color: #66BAFF
+}
+
+redeal:active {
+	-webkit-transform:scale(0.75);
 }

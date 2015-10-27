@@ -13,9 +13,6 @@ goog.require('app.views.Table.Template');
 app.views.Table.View = function(products){
 	goog.base(this);
 
-
-	this.hand = app.dm.deck.cards;
-
 	this.export();
 };
 goog.inherits(app.views.Table.View, app.base.View);
@@ -32,3 +29,8 @@ app.views.Table.View.prototype.name = 'table-view';
  * @override
  */
 app.views.Table.View.prototype.template = (new app.views.Table.Template()).template;
+
+
+app.views.Table.View.prototype.redeal = function(){
+	app.gm.restart();
+};

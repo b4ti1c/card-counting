@@ -26,3 +26,15 @@ app.managers.DeckManager.prototype.getCard = function(){
 
 	return this.deck.cards.pop();
 };
+
+
+/**
+ * 
+ * @param  {Array<app.models.Card>|app.models.Card} cards [description]
+ */
+app.managers.DeckManager.prototype.collectCard = function(cards){
+	if(Object.prototype.toString.call(cards) == '[object Array]')
+		this.deck.cards.concat(cards);
+	else
+		this.deck.cards.push(cards);
+};
