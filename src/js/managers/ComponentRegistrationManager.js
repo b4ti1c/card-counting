@@ -4,6 +4,7 @@ goog.require('app.components.Card.Component');
 goog.require('app.components.Cardplayer.Component');
 goog.require('app.components.Player.Component');
 goog.require('app.components.CPU.Component');
+goog.require('app.components.Tablecenter.Component');
 
 
 
@@ -18,6 +19,7 @@ app.managers.ComponentRegistrationManager = function(){
 	this.register(new app.components.Cardplayer.Component());
 	this.register(new app.components.Player.Component());
 	this.register(new app.components.CPU.Component());
+	this.register(new app.components.Tablecenter.Component());
 };
 goog.inherits(app.managers.ComponentRegistrationManager, app.base.Manager);
 goog.addSingletonGetter(app.managers.ComponentRegistrationManager);
