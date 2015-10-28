@@ -50,14 +50,14 @@ app.models.Hand.prototype.retrieveCard = function(card){
 	card = card || 0;
 
 	if(typeof card == 'number')
-		if(card >= this.cards.length) new Error('Card index greater than hand'); 
+		if(card >= this.cards.length) throw new Error('Card index greater than hand'); 
 		else {
 			var cardAtIndex = this.cards()[cardAtIndex];
 			this.cards.splice(card, 1);
 			return cardAtIndex;
 		}
 	else
-		if(this.cards.indexOf(card) == -1) new Error('Card not existing in hand');
+		if(this.cards.indexOf(card) == -1) throw new Error('Card not existing in hand');
 		else {
 			this.cards.splice(this.cards.indexOf(card), 1);
 			return card;

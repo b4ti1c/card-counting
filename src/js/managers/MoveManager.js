@@ -55,7 +55,7 @@ app.managers.MoveManager.prototype.resolveTurn = function(){
 
 
 app.managers.MoveManager.prototype.resolveMove = function(evt){
-	if(evt.id != this.turnMachine.whoseTurn()) new Error('Invalid move in another one`s turn');
+	if(evt.id != this.turnMachine.whoseTurn()) throw new Error('Invalid move in another one`s turn');
 	if(!this.moth.recordMove(evt.id, evt.card)){
 		this.turnMachine.endTurn();
 		this.askNextMove();
