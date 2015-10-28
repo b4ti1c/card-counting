@@ -6,10 +6,12 @@ cpu {
 }
 
 cpu#left {
-	bottom: 390px;
-	left: -275px;
-	-webkit-transform: rotate(90deg);
-	-webkit-transform-origin: bottom center;
+	margin: 0 auto;
+	bottom: 4px;
+	left: 0;
+	right: 0;
+	-webkit-transform: rotate(90deg) translate(-320px, 448px);
+	-webkit-transform-origin: 50% 53%;
 }
 
 cpu#top {
@@ -21,8 +23,10 @@ cpu#top {
 }
 
 cpu#right {
-	bottom: 390px;
-	right: -275px;
-	-webkit-transform: rotate(270deg);
-	-webkit-transform-origin: bottom center;
+	margin: 0 auto;
+	bottom: 4px;
+	left: 0;
+	right: 0;
+	-webkit-transform: rotate(270deg) translate(322px, 448px);
+	-webkit-transform-origin: 50% 53%;
 }
