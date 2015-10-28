@@ -24,12 +24,9 @@ app.components.Tablecenter.ViewModel.prototype.bindModelEvents = function(){
 
 
 app.components.Tablecenter.ViewModel.prototype.onTurnWinner = function(evt){
-	console.log(evt);
 	this.winner(evt.winner);
 	setTimeout(function(){
 		while(app.gm.mm.tablecenter.cards().length) app.gm.mm.tablecenter.cards.pop();
 		this.winner(null);
 	}.bind(this), 700);
-
-	console.log(this.winner());
 };

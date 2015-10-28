@@ -53,10 +53,34 @@ tablecard.bottom {
 	margin: 0 auto;
 }
 
+tablecard.winnerleft {
+	left: -440px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	z-index: 10;
+}
+
+tablecard.winnertop {
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: -370px;
+	z-index: 10;
+}
+
+tablecard.winnerright {
+	right: -440px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	z-index: 10;
+}
+
 tablecard.winnerbottom {
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-	bottom: -320px;
+	bottom: -370px;
 	z-index: 10;
 }
