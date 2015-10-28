@@ -24,7 +24,7 @@ app.managers.GameManager = function(){
 
 	this.init();
 
-	setTimeout(this.mm.startNewTurn.bind(this.mm), 1000);
+	setTimeout(this.mm.startNewTurn.bind(this.mm), 200);
 };
 goog.inherits(app.managers.GameManager, app.base.Manager);
 goog.addSingletonGetter(app.managers.GameManager);

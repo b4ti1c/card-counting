@@ -1,5 +1,6 @@
 goog.provide('app.managers.MoveManager');
 goog.require('app.base.Manager');
+goog.require('app.models.Tablecenter');
 goog.require('app.utils.TurnMachine');
 goog.require('app.utils.MovesOnTableHandler');
 
@@ -10,6 +11,9 @@ goog.require('app.utils.MovesOnTableHandler');
  */
 app.managers.MoveManager = function(){
 	goog.base(this);
+
+	this.tablecenter = new app.models.Tablecenter();
+    this.tablecenter.setParentEventTarget(this);
 
 	this.turnMachine = new app.utils.TurnMachine();
 	this.turnMachine.setParentEventTarget(this);
@@ -28,6 +32,7 @@ app.managers.MoveManager.prototype.bindModelEvents = function(){
 
 app.managers.MoveManager.prototype.init = function(){
 	this.lastWinnerId = app.managers.GameManager.Id.PLAYER;
+	this.tablecenter.removeCards();
 };
 
 
@@ -51,11 +56,17 @@ app.managers.MoveManager.prototype.resolveTurn = function(){
 	console.log('winner of the turn:', this.lastWinnerId);
 
 	this.moth.collectTable();
+	setTimeout(this.dispatchEvent.bind(this, {
+		type: app.managers.MoveManager.Events.TURN_WINNER,
+		winner: this.lastWinnerId
+	}), 1000);
 };
 
 
 app.managers.MoveManager.prototype.resolveMove = function(evt){
 	if(evt.id != this.turnMachine.whoseTurn()) throw new Error('Invalid move in another one`s turn');
+	setTimeout(this.tablecenter.load.bind(this.tablecenter, evt.card, evt.id), 500);
+
 	if(!this.moth.recordMove(evt.id, evt.card)){
 		this.turnMachine.endTurn();
 		this.askNextMove();
@@ -64,5 +75,6 @@ app.managers.MoveManager.prototype.resolveMove = function(evt){
 
 
 app.managers.MoveManager.Events = {
-	TURN: 'new-turn'
+	TURN: 'new-turn',
+	TURN_WINNER: 'turn-winner'
 }

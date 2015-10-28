@@ -20,6 +20,6 @@ goog.inherits(app.components.Cardplayer.Template, app.base.Template);
  */
 app.components.Cardplayer.Template.prototype.templates_base = function(){
 	return '<cardplayer data-bind="foreach: {data: cards, as:\'card\'}">\
-				<!-- ko component: {name: \'card-component\', params: {parent: $parent, card: card, open: ko.observable(true), inhand: ko.observable(true), index: $index}} --><!-- /ko -->\
+				<!-- ko component: {name: \'card-component\', params: {parent: $parent, card: card}} --><!-- /ko -->\
 			</cardplayer>';
 };

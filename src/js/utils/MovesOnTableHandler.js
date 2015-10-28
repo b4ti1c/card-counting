@@ -48,8 +48,6 @@ app.utils.MovesOnTableHandler.prototype.getWinner = function(){
 
 app.utils.MovesOnTableHandler.prototype.collectTable = function(){
 	Object.keys(this.playedMoves).forEach(function(id){
-		var card = this.playedMoves[id];
-		app.dm.collectCard(app.gm.cardplayers[id].retrieveCard(card));
 		this.playedMoves[id] = null;
 	}, this);
 };

@@ -13,6 +13,7 @@ body {
     font-weight: 200;
     background: white;
     font-size: 36px;
+    overflow: hidden;
 }
 
 .db {

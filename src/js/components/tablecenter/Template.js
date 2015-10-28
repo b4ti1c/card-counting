@@ -19,5 +19,11 @@ goog.inherits(app.components.Tablecenter.Template, app.base.Template);
  * @override
  */
 app.components.Tablecenter.Template.prototype.templates_base = function(){
-	return '<tablecenter></tablecenter>';
+	return '<tablecenter>\
+				<!-- ko foreach: {data: app.gm.mm.tablecenter.cards, as: \'carditem\'} -->\
+					<tablecard data-bind="attr: {class: $parent.winner() ? \'winner\' + $parent.winner() : carditem.id}">\
+						<!-- ko component: {name: \'card-component\', params: {parent: $parent, card: carditem.card, open: ko.observable(true)}} --><!-- /ko -->\
+					</tablecard>\
+				<!-- /ko -->\
+			</tablecenter>';
 };

@@ -50,7 +50,7 @@ app.models.Hand.prototype.retrieveCard = function(card){
 	card = card || 0;
 
 	if(typeof card == 'number')
-		if(card >= this.cards.length) throw new Error('Card index greater than hand'); 
+		if(card >= this.cards().length) throw new Error('Card index greater than hand'); 
 		else {
 			var cardAtIndex = this.cards()[cardAtIndex];
 			this.cards.splice(card, 1);
