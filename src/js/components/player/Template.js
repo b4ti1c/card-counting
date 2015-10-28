@@ -1,17 +1,17 @@
 goog.provide('app.components.Player.Template');
-goog.require('app.base.Template');
+goog.require('app.components.Cardplayer.Template');
 
 
 
 /**
  * @constructor
- * @extends {app.base.Template}
+ * @extends {app.components.Cardplayer.Template}
  * 
  */
 app.components.Player.Template = function(){
 	goog.base(this);
 };
-goog.inherits(app.components.Player.Template, app.base.Template);
+goog.inherits(app.components.Player.Template, app.components.Cardplayer.Template);
 
 
 /**

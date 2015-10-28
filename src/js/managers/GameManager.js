@@ -12,13 +12,15 @@ app.managers.GameManager = function(){
 	goog.base(this);
 
 	this.mm = app.managers.MoveManager.getInstance();
+	this.mm.setParentEventTarget(this);
 	this.setTrump(app.models.Card.Color.SPADE);
 
-	this.cpu = {};
-	this.cpu['left'] = new app.models.Hand();
-	this.cpu['top'] = new app.models.Hand();
-	this.cpu['right'] = new app.models.Hand();
-	this.player = new app.models.Hand();
+
+	this.cardplayers = {};
+	Object.keys(app.managers.GameManager.Id).forEach(function(key){
+		var id = app.managers.GameManager.Id[key];
+		this.cardplayers[id] = new app.models.Hand(id);
+	}, this);
 
 	this.init();
 };
@@ -26,27 +28,38 @@ goog.inherits(app.managers.GameManager, app.base.Manager);
 goog.addSingletonGetter(app.managers.GameManager);
 
 
+app.managers.GameManager.prototype.bindModelEvents = function(){
+	this.listeners = [];
+
+	this.listeners.push(goog.events.listen(this, app.utils.MovesOnTableHandler.Events.MOVES_COMPLETE, this.onMovesComplete, false, this));
+};
+
+
 app.managers.GameManager.prototype.init = function(){
 	app.dm.shuffle();
 
-	while(app.dm.deck.cards.length){
-		this.cpu['left'].load(app.dm.getCard());
-		this.cpu['top'].load(app.dm.getCard());
-		this.cpu['right'].load(app.dm.getCard());
-		this.player.load(app.dm.getCard());
-	}
+	while(app.dm.deck.cards.length)
+		Object.keys(this.cardplayers).forEach(function(id){
+			this.cardplayers[id].load(app.dm.getCard());
+		}, this)
+	
 
 	this.mm.init();
 };
 
 
 app.managers.GameManager.prototype.restart = function(){
-	while(this.player.cards().length) app.dm.collectCard(this.player.cards.pop());
-	while(this.cpu['left'].cards().length) app.dm.collectCard(this.cpu['left'].cards.pop());
-	while(this.cpu['top'].cards().length) app.dm.collectCard(this.cpu['top'].cards.pop());
-	while(this.cpu['right'].cards().length) app.dm.collectCard(this.cpu['right'].cards.pop());
+	Object.keys(this.cardplayers).forEach(function(id){
+		while(this.cardplayers[id].cards().length) 
+			app.dm.collectCard(this.cardplayers[id].cards.pop());
+	}, this);
 
 	this.init();
+};
+
+
+app.managers.GameManager.prototype.onMovesComplete = function(){
+	this.mm.resolveTurn();
 };
 
 

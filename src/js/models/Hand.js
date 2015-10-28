@@ -8,13 +8,14 @@ goog.require('app.base.Model');
  * @constructor
  * @extends {app.base.Model}
  *
- * @param {Array<app.models.Card>=} opt_cards [description]
+ * @param {app.managers.GameManager.Id}  [description]
  */
-app.models.Hand = function(opt_cards) {
+app.models.Hand = function(owner) {
 	goog.base(this);
 
-	this.cards = ko.observableArray(opt_cards || []);
-	if(opt_cards) this.sort();
+	this.id = owner;
+
+	this.cards = ko.observableArray([]);
 };
 goog.inherits(app.models.Hand, app.base.Model);
 

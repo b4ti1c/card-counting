@@ -12,6 +12,8 @@ goog.require('app.views.Table.View');
 app.MainViewModel = function(){	
 	goog.base(this);
 
+	this.setParentEventTarget(app.gm);
+
 	app.vm.goToView(app.vf.createView(this, new app.views.Table.View()));
 
 	this.exports.push({ref: 'vm', obj: app.vm});

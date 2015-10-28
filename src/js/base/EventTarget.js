@@ -11,8 +11,8 @@ app.base.EventTarget = function() {
     goog.base(this);
 
     //this.exports = [];
-    this.bindModelEvents();
-    this.bindDOMEvents();
+    setTimeout(this.bindModelEvents.bind(this), 50);
+    setTimeout(this.bindDOMEvents.bind(this), 50);
 
     if(!this.exports) this.exports = [];
     this.export();
