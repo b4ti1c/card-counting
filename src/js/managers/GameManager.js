@@ -23,14 +23,14 @@ app.managers.GameManager = function(){
 	}, this);
 
 	this.init();
+
+	setTimeout(this.mm.startNewTurn.bind(this.mm), 1000);
 };
 goog.inherits(app.managers.GameManager, app.base.Manager);
 goog.addSingletonGetter(app.managers.GameManager);
 
 
 app.managers.GameManager.prototype.bindModelEvents = function(){
-	this.listeners = [];
-
 	this.listeners.push(goog.events.listen(this, app.utils.MovesOnTableHandler.Events.MOVES_COMPLETE, this.onMovesComplete, false, this));
 };
 
@@ -60,6 +60,7 @@ app.managers.GameManager.prototype.restart = function(){
 
 app.managers.GameManager.prototype.onMovesComplete = function(){
 	this.mm.resolveTurn();
+	this.mm.startNewTurn();
 };
 
 

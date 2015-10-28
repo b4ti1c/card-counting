@@ -10,6 +10,8 @@ goog.require('goog.events.EventTarget');
 app.base.EventTarget = function() {
     goog.base(this);
 
+    if(!this.listeners) this.listeners = [];
+
     //this.exports = [];
     setTimeout(this.bindModelEvents.bind(this), 50);
     setTimeout(this.bindDOMEvents.bind(this), 50);
@@ -49,5 +51,7 @@ app.base.EventTarget.prototype.export = function(){
  * @override
  */
 app.base.EventTarget.prototype.disposeInternal = function(){
+    this.listeners.forEach(goog.events.unlistenByKey);
+    
     goog.base(this, 'disposeInternal');
 };

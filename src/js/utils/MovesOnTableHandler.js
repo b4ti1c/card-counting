@@ -26,19 +26,22 @@ app.utils.MovesOnTableHandler.prototype.clearMoves = function(){
 
 
 app.utils.MovesOnTableHandler.prototype.bindModelEvents = function(){
-	this.listeners = [];
-
 	this.listeners.push(goog.events.listen(app.gm, app.components.Cardplayer.Events.MAKE_MOVE, this.recordMove, false, this));
 };
 
 
-app.utils.MovesOnTableHandler.prototype.recordMove = function(evt){
-	this.playedMoves[evt.id] = evt.card;
+app.utils.MovesOnTableHandler.prototype.recordMove = function(id, card){
+	this.playedMoves[id] = card;
 
-	for(var id in this.playedMoves)
-		if(!id) return;
+	var endTurn = true;
 
-	this.dispatchEvent(app.utils.MovesOnTableHandler.Events.MOVES_COMPLETE);
+	Object.keys(this.playedMoves).forEach(function(pid){
+		if(!this.playedMoves[pid]) endTurn = false;
+	}, this);
+
+	if(endTurn)	this.dispatchEvent(app.utils.MovesOnTableHandler.Events.MOVES_COMPLETE);
+
+	return endTurn;
 };
 
 

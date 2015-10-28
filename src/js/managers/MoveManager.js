@@ -21,8 +21,14 @@ goog.inherits(app.managers.MoveManager, app.base.Manager);
 goog.addSingletonGetter(app.managers.MoveManager);
 
 
+app.managers.MoveManager.prototype.bindModelEvents = function(){
+	this.listeners.push(goog.events.listen(app.gm, app.components.Cardplayer.Events.MAKE_MOVE, this.resolveMove, false, this));
+};
+
+
 app.managers.MoveManager.prototype.init = function(){
-	this.turnMachine.init(app.managers.GameManager.Id.PLAYER);
+	this.lastWinnerId = app.managers.GameManager.Id.PLAYER;
+	//this.turnMachine.init(app.managers.GameManager.Id.PLAYER);
 };
 
 
@@ -34,13 +40,25 @@ app.managers.MoveManager.prototype.askNextMove = function(){
 };
 
 
+app.managers.MoveManager.prototype.startNewTurn = function(){
+	this.turnMachine.init(this.lastWinnerId);
+	this.askNextMove();
+};
+
+
 app.managers.MoveManager.prototype.resolveTurn = function(){
-	var winnerId = this.moth.getWinner();
-	this.turnMachine.init(winnerId);
+	this.lastWinnerId = this.moth.getWinner();
 
 	this.moth.collectTable();
+};
 
-	app.dm.collectCard(this.cardplayers['bottom'].cards.pop());
+
+app.managers.MoveManager.prototype.resolveMove = function(evt){
+	if(evt.id != this.turnMachine.whoseTurn()) new Error('Invalid move in another one`s turn');
+	if(!this.moth.recordMove(evt.id, evt.card)){
+		this.turnMachine.endTurn();
+		this.askNextMove();
+	}
 };
 
 
