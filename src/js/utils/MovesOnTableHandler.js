@@ -21,12 +21,7 @@ goog.inherits(app.utils.MovesOnTableHandler, app.base.EventTarget);
 app.utils.MovesOnTableHandler.prototype.clearMoves = function(){
 	Object.keys(this.playedMoves).forEach(function(id){
 		this.playedMoves[id] = null;
-	});
-};
-
-
-app.utils.MovesOnTableHandler.prototype.bindModelEvents = function(){
-	this.listeners.push(goog.events.listen(app.gm, app.components.Cardplayer.Events.MAKE_MOVE, this.recordMove, false, this));
+	}, this);
 };
 
 
@@ -56,7 +51,7 @@ app.utils.MovesOnTableHandler.prototype.collectTable = function(){
 		var card = this.playedMoves[id];
 		app.dm.collectCard(app.gm.cardplayers[id].retrieveCard(card));
 		this.playedMoves[id] = null;
-	});
+	}, this);
 };
 
 

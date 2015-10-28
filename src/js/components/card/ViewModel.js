@@ -32,11 +32,20 @@ goog.inherits(app.components.Card.ViewModel, app.base.ViewModel);
 
 app.components.Card.ViewModel.prototype.show = function() {
 	this.open(true);
-	console.log(this.card);
+	//console.log(this.card);
 	this.move();
 };
 
 
 app.components.Card.ViewModel.prototype.move = function(){
 	this.moved(true);
+	this.dispatchEvent({
+		type: app.components.Card.ViewModel.Events.CARD_MOVE,
+		card: this.card
+	});
+};
+
+
+app.components.Card.ViewModel.Events = {
+	CARD_MOVE: 'card-move'
 };

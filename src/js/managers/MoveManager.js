@@ -28,7 +28,6 @@ app.managers.MoveManager.prototype.bindModelEvents = function(){
 
 app.managers.MoveManager.prototype.init = function(){
 	this.lastWinnerId = app.managers.GameManager.Id.PLAYER;
-	//this.turnMachine.init(app.managers.GameManager.Id.PLAYER);
 };
 
 
@@ -48,6 +47,8 @@ app.managers.MoveManager.prototype.startNewTurn = function(){
 
 app.managers.MoveManager.prototype.resolveTurn = function(){
 	this.lastWinnerId = this.moth.getWinner();
+
+	console.log('winner of the turn:', this.lastWinnerId);
 
 	this.moth.collectTable();
 };

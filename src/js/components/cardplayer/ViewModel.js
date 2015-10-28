@@ -19,15 +19,26 @@ goog.inherits(app.components.Cardplayer.ViewModel, app.base.ViewModel);
 
 
 app.components.Cardplayer.ViewModel.prototype.bindModelEvents = function(){
-	this.listeners = [];
-
 	this.listeners.push(goog.events.listen(app.gm, app.managers.MoveManager.Events.TURN, this.onTurnEvent, false, this));
+	this.listeners.push(goog.events.listen(this, app.components.Card.ViewModel.Events.CARD_MOVE, this.onCardMove, false, this));
 };
 
 
 app.components.Cardplayer.ViewModel.prototype.onTurnEvent = function(evt){
 	if(evt.id == this.id)
 		console.log('My turn:', this.id);
+};
+
+
+app.components.Cardplayer.ViewModel.prototype.onCardMove = function(evt){
+	evt.stopPropagation();
+
+	this.dispatchEvent({
+		type: app.components.Cardplayer.Events.MAKE_MOVE,
+		id: this.id,
+		card: evt.card
+	});
+	//console.log(this.id, evt.card);
 };
 
 
