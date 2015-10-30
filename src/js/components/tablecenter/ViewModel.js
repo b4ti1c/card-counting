@@ -14,6 +14,7 @@ app.components.Tablecenter.ViewModel = function(params, element){
 	goog.base(this, params, element);
 
 	this.winner = ko.observable(null);
+	this.turnCount = ko.observable(app.gm.turn);
 
 	this.refArray = ko.observableArray(['dummy']);
 };
@@ -30,5 +31,6 @@ app.components.Tablecenter.ViewModel.prototype.onTurnWinner = function(evt){
 	setTimeout(function(){
 		this.cards.removeAll();
 		this.winner(null);
+		this.turnCount(app.gm.turn);
 	}.bind(this), 700);
 };

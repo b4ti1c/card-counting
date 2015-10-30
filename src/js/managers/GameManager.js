@@ -36,6 +36,8 @@ app.managers.GameManager.prototype.bindModelEvents = function(){
 
 
 app.managers.GameManager.prototype.init = function(){
+	this.turn = 1;
+
 	app.dm.shuffle();
 
 	while(app.dm.deck.cards.length)
@@ -61,6 +63,7 @@ app.managers.GameManager.prototype.restart = function(){
 app.managers.GameManager.prototype.onMovesComplete = function(){
 	this.mm.resolveTurn();
 	this.mm.startNewTurn();
+	this.turn++;
 };
 
 
