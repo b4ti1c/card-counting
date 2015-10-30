@@ -19,7 +19,12 @@ card {
 	right: 0;
 }
 
-card.inhand:not(.moved):hover {
+player:not(.mademymove) card.inhand.valid {
+	border: 2px solid red;
+	border-radius: 4px;
+}
+
+card.valid.inhand:not(.moved):hover {
 	bottom: 35px;
 }
 
