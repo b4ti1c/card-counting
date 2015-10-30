@@ -10,7 +10,7 @@ goog.require('app.base.EventTarget');
 app.utils.MovesOnTableHandler = function() {
     goog.base(this);
 
-    this.firstMoveColor = null;
+    this.firstMover = null;
 
     this.playedMoves = {};
     Object.keys(app.managers.GameManager.Id).map(function(key){
@@ -28,7 +28,11 @@ app.utils.MovesOnTableHandler.prototype.clearMoves = function(){
 
 
 app.utils.MovesOnTableHandler.prototype.recordMove = function(id, card){
-	if(!this.firstMoveColor) this.firstMoveColor = card.color;
+	if(!this.firstMover) 
+		this.firstMover = {
+			id: id,
+			color: card.color
+		};
 
 	this.playedMoves[id] = card;
 
@@ -45,18 +49,22 @@ app.utils.MovesOnTableHandler.prototype.recordMove = function(id, card){
 
 
 app.utils.MovesOnTableHandler.prototype.getWinner = function(){
-	console.log(this.playedMoves);
-
-	var winner = app.managers.GameManager.Id.CPU_LEFT;
+	var winner = this.firstMover.id;
 
 	Object.keys(this.playedMoves).forEach(function(id){
 		var candidateCard = this.playedMoves[id];
 		var winnerCard = this.playedMoves[winner];
 
-		if(candidateCard.color == winnerCard.color && candidateCard.number > winnerCard.number)
-			winner = id;
-		else if(candidateCard.color == app.gm.trump)
-			winner = id;
+		if(winnerCard.color == app.gm.trump){
+			if(candidateCard.color == app.gm.trump && candidateCard.number > winnerCard.number)
+				winner = id;
+		} else {
+			if(candidateCard.color == app.gm.trump)
+				winner = id;
+			else if(candidateCard.color == this.firstMover.color && candidateCard.number > winnerCard.number)
+				winner = id;
+		}
+
 	}, this);
 
 	// TABLE LOGIC
@@ -69,7 +77,7 @@ app.utils.MovesOnTableHandler.prototype.collectTable = function(){
 		this.playedMoves[id] = null;
 	}, this);
 
-	this.firstMoveColor = null;
+	this.firstMover = null;
 };
 
 
