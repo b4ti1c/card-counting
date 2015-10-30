@@ -22,7 +22,7 @@ app.components.Tablecenter.Template.prototype.templates_base = function(){
 	return '<tablecenter>\
 				<!-- ko foreach: {data: cards, as: \'carditem\'} -->\
 					<tablecard data-bind="attr: {class: $parent.winner() ? \'winner\' + $parent.winner() : carditem.id}">\
-						<!-- ko component: {name: \'card-component\', params: {parent: $parent, card: carditem.card, open: ko.observable(true)}} --><!-- /ko -->\
+						<!-- ko component: {name: \'card-component\', params: {parent: $parent, card: carditem.card, open: ko.observable(true), refArray: $parent.refArray}} --><!-- /ko -->\
 					</tablecard>\
 				<!-- /ko -->\
 			</tablecenter>';

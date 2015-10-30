@@ -14,6 +14,8 @@ app.components.Tablecenter.ViewModel = function(params, element){
 	goog.base(this, params, element);
 
 	this.winner = ko.observable(null);
+
+	this.refArray = ko.observableArray(['dummy']);
 };
 goog.inherits(app.components.Tablecenter.ViewModel, app.base.ViewModel);
 
