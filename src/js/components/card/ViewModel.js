@@ -32,7 +32,7 @@ goog.inherits(app.components.Card.ViewModel, app.base.ViewModel);
 
 
 app.components.Card.ViewModel.prototype.show = function() {
-	if(this.parent.moveAllowed()){	
+	if(this.parent.moveAllowed() && this.card.validForMove()){	
 		this.open(true);
 		this.move();
 	}

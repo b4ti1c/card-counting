@@ -39,7 +39,9 @@ app.managers.MoveManager.prototype.init = function(){
 app.managers.MoveManager.prototype.askNextMove = function(){
 	this.dispatchEvent({
 		type: app.managers.MoveManager.Events.TURN,
-		id: this.turnMachine.whoseTurn()
+		id: this.turnMachine.whoseTurn(),
+		tablestate: this.moth.playedMoves,
+		firstMover: this.moth.firstMover
 	});
 };
 
@@ -47,6 +49,8 @@ app.managers.MoveManager.prototype.askNextMove = function(){
 app.managers.MoveManager.prototype.startNewTurn = function(){
 	this.turnMachine.init(this.lastWinnerId);
 	this.askNextMove();
+
+	this.dispatchEvent(app.managers.MoveManager.Events.NEW_TURN);
 };
 
 
@@ -75,6 +79,7 @@ app.managers.MoveManager.prototype.resolveMove = function(evt){
 
 
 app.managers.MoveManager.Events = {
-	TURN: 'new-turn',
-	TURN_WINNER: 'turn-winner'
+	TURN: 'turn',
+	TURN_WINNER: 'turn-winner',
+	NEW_TURN: 'new-turn'
 }

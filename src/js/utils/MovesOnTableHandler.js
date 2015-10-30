@@ -31,7 +31,7 @@ app.utils.MovesOnTableHandler.prototype.recordMove = function(id, card){
 	if(!this.firstMover) 
 		this.firstMover = {
 			id: id,
-			color: card.color
+			card: card
 		};
 
 	this.playedMoves[id] = card;
@@ -61,7 +61,7 @@ app.utils.MovesOnTableHandler.prototype.getWinner = function(){
 		} else {
 			if(candidateCard.color == app.gm.trump)
 				winner = id;
-			else if(candidateCard.color == this.firstMover.color && candidateCard.number > winnerCard.number)
+			else if(candidateCard.color == this.firstMover.card.color && candidateCard.number > winnerCard.number)
 				winner = id;
 		}
 

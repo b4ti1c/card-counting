@@ -16,6 +16,8 @@ app.models.Card = function(number, color) {
 
 	this['number'] = this.number = number;
 	this['color'] = this.color = color;
+
+	this.validForMove = ko.observable(false);
 };
 goog.inherits(app.models.Card, app.base.Model);
 

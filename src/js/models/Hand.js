@@ -69,18 +69,21 @@ app.models.Hand.prototype.retrieveCard = function(card){
  * 
  * @param  {app.models.Card|app.models.Card.Color} info        [description]
  * @param  {boolean=} opt_largest [description]
+ * @param  {app.models.Card.Number=} opt_largerthan [description]
  */
-app.models.Hand.prototype.askCard = function(info, opt_largest){
+app.models.Hand.prototype.askCard = function(info, opt_largest, opt_largerthan){
 	if(Object.prototype.toString.call(info) == '[object Object]')
 		return this.cards.indexOf(info) != -1;
 
-	var stack = this.cards.filter(function(card){
-		return card.color == info;
+	var stack = this.cards().filter(function(card){
+		if(!opt_largerthan) return card.color == info;
+		else return card.color == info && card.number > opt_largerthan;
 	});
 
 	if(!stack.length) return -1;
 
 	if(!opt_largest) return stack[0];
+
 	return stack[stack.length - 1];
 };
 
