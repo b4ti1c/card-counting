@@ -25,7 +25,8 @@ app.components.Cardplayer.ViewModel.prototype.bindModelEvents = function(){
 
 
 app.components.Cardplayer.ViewModel.prototype.onTurnEvent = function(evt){
-	if(evt.id == this.id)
+	this.moveAllowed = evt.id == this.id;
+	if(this.moveAllowed)
 		console.log('My turn:', this.id);
 };
 
