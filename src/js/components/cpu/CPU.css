@@ -10,7 +10,8 @@ cpu {
 }
 
 cpu.hasturn {
-	border: 2px solid cyan;
+	border: 2px solid #67c1c1;
+	box-shadow: 0px 0px 30px 5px #67c1c1;
 }
 
 cpu#left {
