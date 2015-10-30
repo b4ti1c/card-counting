@@ -17,15 +17,35 @@ card {
 	top: 0;
 	margin: auto; 
 	right: 0;
+
+	z-index: 1;
+}
+
+cardoverlay {
+	display: block;
+	height: 116px;
+	width: 77px;
+	bottom: 0;
+	position: absolute;
+
+	border-radius: 3px;
+
+	top: 0;
+	margin: auto; 
+	right: 0;
+
+	z-index: 1;
+
+	background-color: rgba(0,0,0,0.7);
 }
 
 player:not(.mademymove) card.inhand.valid {
-	border: 2px solid red;
-	border-radius: 4px;
+	/*border: 2px solid red;
+	border-radius: 4px;*/
 }
 
 card.valid.inhand:not(.moved):hover {
-	bottom: 35px;
+	bottom: 75px;
 }
 
 player card.moved, cpu#top card.moved {

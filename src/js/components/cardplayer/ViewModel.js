@@ -103,13 +103,12 @@ app.components.Cardplayer.ViewModel.prototype.onTurnEvent = function(evt){
 app.components.Cardplayer.ViewModel.prototype.onCardMove = function(evt){
 	evt.stopPropagation();
 
+	this.madeMyMove(true);
 	this.dispatchEvent({
 		type: app.components.Cardplayer.Events.MAKE_MOVE,
 		id: this.id,
 		card: evt.card
 	});
-
-	this.madeMyMove(true);
 };
 
 

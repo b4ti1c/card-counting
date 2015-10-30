@@ -13,7 +13,7 @@ goog.require('app.base.ViewModel');
 app.components.Card.ViewModel = function(params, element){
 	goog.base(this, params, element);
 
-	if(!this.open) this.open = ko.observable(false);
+	if(!this.open) this.open = ko.observable(true);
 	if(!this.inhand) this.inhand = ko.observable(false);
 	if(!this.index) this.index = ko.observable(0); //middle of a 13-cards hand
 	if(!this.refArray) this.refArray = this.parent.cards;

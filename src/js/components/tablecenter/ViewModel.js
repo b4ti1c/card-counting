@@ -17,6 +17,8 @@ app.components.Tablecenter.ViewModel = function(params, element){
 	this.turnCount = ko.observable(app.gm.turn);
 
 	this.refArray = ko.observableArray(['dummy']);
+
+	this.madeMyMove = ko.observable(true);
 };
 goog.inherits(app.components.Tablecenter.ViewModel, app.base.ViewModel);
 
