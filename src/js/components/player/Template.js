@@ -19,7 +19,7 @@ goog.inherits(app.components.Player.Template, app.components.Cardplayer.Template
  * @override
  */
 app.components.Player.Template.prototype.templates_base = function(){
-	return '<player data-bind="style: {width: cards().length * 43 + \'px\'}, foreach: {data: cards, as:\'card\'}">\
+	return '<player data-bind="style: {width: (cards().length - 1) * 40 + 77 + \'px\'}, css: {hasturn: moveAllowed()}, foreach: {data: cards, as:\'card\'}">\
 				<!-- ko component: {name: \'card-component\', params: {parent: $parent, card: card, open: ko.observable(true), inhand: ko.observable(true), index: $index}} --><!-- /ko -->\
 			</player>';
 };

@@ -22,25 +22,25 @@ tablecard {
 tablecard.left {
     left: 17px;
 	top: 0;
-    bottom: 3px;
+    bottom: 9px;
     margin: auto 0;
 	-webkit-transform: rotate(90deg);
 	-webkit-transform-origin: 50% 53%;
 }
 
 tablecard.top {
-	top: 0;
+	top: 2px;
 	left: 0;
-	right: 1px;
+	right: 0;
 	margin: 0 auto;
 
 	-webkit-transform: rotate(180deg);
 }
 
 tablecard.right {
-	right: 17px;
+	right: 16px;
 	top: 0;
-    bottom: 9px;
+    bottom: 13px;
     margin: auto 0;
 	-webkit-transform: rotate(270deg);
 	-webkit-transform-origin: 50% 53%;
@@ -49,14 +49,14 @@ tablecard.right {
 tablecard.left.firstturn {
     left: 17px;
 	top: 0;
-    bottom: 5px;
+    bottom: 9px;
     margin: auto 0;
 	-webkit-transform: rotate(90deg);
 	-webkit-transform-origin: 50% 53%;
 }
 
 tablecard.top.firstturn {
-	top: 0;
+	top: 2px;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
@@ -67,14 +67,14 @@ tablecard.top.firstturn {
 tablecard.right.firstturn {
 	right: 16px;
 	top: 0;
-    bottom: 9px;
+    bottom: 13px;
     margin: auto 0;
 	-webkit-transform: rotate(270deg);
 	-webkit-transform-origin: 50% 53%;
 }
 
 tablecard.bottom {
-	bottom: 0;
+	bottom: 2px;
 	left: 0;
 	right: 0;
 	margin: 0 auto;

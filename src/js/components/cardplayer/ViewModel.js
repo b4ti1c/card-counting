@@ -14,6 +14,7 @@ app.components.Cardplayer.ViewModel = function(params, element){
 	goog.base(this, params, element);
 
 	this.cards = app.gm.cardplayers[this.id].cards;
+	this.moveAllowed = ko.observable(false);
 };
 goog.inherits(app.components.Cardplayer.ViewModel, app.base.ViewModel);
 
@@ -25,8 +26,8 @@ app.components.Cardplayer.ViewModel.prototype.bindModelEvents = function(){
 
 
 app.components.Cardplayer.ViewModel.prototype.onTurnEvent = function(evt){
-	this.moveAllowed = evt.id == this.id;
-	if(this.moveAllowed)
+	this.moveAllowed(evt.id == this.id);
+	if(this.moveAllowed())
 		console.log('My turn:', this.id);
 };
 

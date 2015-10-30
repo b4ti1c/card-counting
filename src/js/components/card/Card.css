@@ -14,7 +14,8 @@ card {
 	bottom: 0;
 	position: absolute;
 
-	margin: 0 auto; 
+	top: 0;
+	margin: auto; 
 	right: 0;
 }
 
@@ -24,12 +25,12 @@ card.inhand:not(.moved):hover {
 
 player card.moved, cpu#top card.moved {
 	-webkit-transition-duration: 0.5s;
-	bottom: 200px;
+	bottom: 390px;
 	left: 0!important;
 }
 
 cpu#left card.moved, cpu#right card.moved {
 	-webkit-transition-duration: 0.5s;
-	bottom: 310px;
+	bottom: 610px;
 	left: 0!important;
 }
