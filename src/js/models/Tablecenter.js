@@ -24,7 +24,9 @@ app.models.Tablecenter.prototype.load = function(card, id){
 		card: card
 	});
 
-	app.dm.collectCard(app.gm.cardplayers[id].retrieveCard(card));
+	setTimeout(function(){
+		app.dm.collectCard(app.gm.cardplayers[id].retrieveCard(card));
+	}, 150);	
 };
 
 
