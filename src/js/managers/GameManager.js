@@ -2,6 +2,7 @@ goog.provide('app.managers.GameManager');
 goog.require('app.base.Manager');
 goog.require('app.models.Hand');
 goog.require('app.managers.MoveManager');
+goog.require('app.utils.AuctionAnalyzer');
 
 
 /**
@@ -15,6 +16,8 @@ app.managers.GameManager = function(){
 	this.mm.setParentEventTarget(this);
 	this.setTrump(app.models.Card.Color.SPADE);
 
+	this.aa = new app.utils.AuctionAnalyzer();
+	this.aa.setParentEventTarget(this);
 
 	this.cardplayers = {};
 	Object.keys(app.managers.GameManager.Id).forEach(function(key){

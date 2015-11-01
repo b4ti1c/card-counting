@@ -87,6 +87,17 @@ app.models.Hand.prototype.askCard = function(info, opt_largest, opt_largerthan){
 	return stack[stack.length - 1];
 };
 
+/**
+ * 
+ * @param  {app.models.Card.Color} color [description]
+ * 
+ */
+app.models.Hand.prototype.askColor = function(color){
+	return this.cards().filter(function(card){
+		return card.color == color;
+	});
+};
+
 
 /**
  * 
