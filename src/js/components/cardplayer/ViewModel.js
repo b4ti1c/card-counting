@@ -18,7 +18,6 @@ app.components.Cardplayer.ViewModel = function(params, element){
 
 	this.madeMyMove = ko.observable(false);
 
-	console.log(this.id, app.gm.aa.getBid(app.gm.cardplayers[this.id]));
 };
 goog.inherits(app.components.Cardplayer.ViewModel, app.base.ViewModel);
 
