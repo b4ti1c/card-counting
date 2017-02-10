@@ -8,13 +8,14 @@ goog.require('app.base.Model');
  * @constructor
  * @extends {app.base.Model}
  *
- * @param {Array<app.models.Card>=} opt_cards [description]
+ * @param {app.managers.GameManager.Id}  [description]
  */
-app.models.Hand = function(opt_cards) {
+app.models.Hand = function(owner) {
 	goog.base(this);
 
-	this.cards = ko.observableArray(opt_cards || []);
-	if(opt_cards) this.sort();
+	this.id = owner;
+
+	this.cards = ko.observableArray([]);
 };
 goog.inherits(app.models.Hand, app.base.Model);
 
@@ -49,14 +50,14 @@ app.models.Hand.prototype.retrieveCard = function(card){
 	card = card || 0;
 
 	if(typeof card == 'number')
-		if(card >= this.cards.length) new Error('Card index greater than hand'); 
+		if(card >= this.cards().length) throw new Error('Card index greater than hand'); 
 		else {
 			var cardAtIndex = this.cards()[cardAtIndex];
 			this.cards.splice(card, 1);
 			return cardAtIndex;
 		}
 	else
-		if(this.cards.indexOf(card) == -1) new Error('Card not existing in hand');
+		if(this.cards.indexOf(card) == -1) throw new Error('Card not existing in hand');
 		else {
 			this.cards.splice(this.cards.indexOf(card), 1);
 			return card;
@@ -68,19 +69,33 @@ app.models.Hand.prototype.retrieveCard = function(card){
  * 
  * @param  {app.models.Card|app.models.Card.Color} info        [description]
  * @param  {boolean=} opt_largest [description]
+ * @param  {app.models.Card.Number=} opt_largerthan [description]
  */
-app.models.Hand.prototype.askCard = function(info, opt_largest){
+app.models.Hand.prototype.askCard = function(info, opt_largest, opt_largerthan){
 	if(Object.prototype.toString.call(info) == '[object Object]')
 		return this.cards.indexOf(info) != -1;
 
-	var stack = this.cards.filter(function(card){
-		return card.color == info;
+	var stack = this.cards().filter(function(card){
+		if(!opt_largerthan) return card.color == info;
+		else return card.color == info && card.number > opt_largerthan;
 	});
 
 	if(!stack.length) return -1;
 
 	if(!opt_largest) return stack[0];
+
 	return stack[stack.length - 1];
+};
+
+/**
+ * 
+ * @param  {app.models.Card.Color} color [description]
+ * 
+ */
+app.models.Hand.prototype.askColor = function(color){
+	return this.cards().filter(function(card){
+		return card.color == color;
+	});
 };
 
 

@@ -2,14 +2,25 @@ cpu {
 	display: block;
 	position: absolute;
 	width: 558px;
-	height: 126px;
+	height: 116px;
+	padding: 5px;
+
+	border: 2px solid rgba(0,0,0,0);
+	border-radius: 15px;
+}
+
+cpu.hasturn {
+	border: 2px solid #67c1c1;
+	box-shadow: 0px 0px 30px 5px #67c1c1;
 }
 
 cpu#left {
-	bottom: 390px;
-	left: -275px;
-	-webkit-transform: rotate(90deg);
-	-webkit-transform-origin: bottom center;
+	margin: 0 auto;
+	bottom: 4px;
+	left: 0;
+	right: 0;
+	-webkit-transform: rotate(90deg) translate(-320px, 448px);
+	-webkit-transform-origin: 50% 53%;
 }
 
 cpu#top {
@@ -21,8 +32,10 @@ cpu#top {
 }
 
 cpu#right {
-	bottom: 390px;
-	right: -275px;
-	-webkit-transform: rotate(270deg);
-	-webkit-transform-origin: bottom center;
+	margin: 0 auto;
+	bottom: 4px;
+	left: 0;
+	right: 0;
+	-webkit-transform: rotate(270deg) translate(322px, 448px);
+	-webkit-transform-origin: 50% 53%;
 }

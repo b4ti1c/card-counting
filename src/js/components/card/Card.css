@@ -13,20 +13,49 @@ card {
 	width: 77px;
 	bottom: 0;
 	position: absolute;
+
+	top: 0;
+	margin: auto; 
+	right: 0;
+
+	z-index: 1;
 }
 
-card.inhand:not(.moved):hover {
-	bottom: 35px;
+cardoverlay {
+	display: block;
+	height: 116px;
+	width: 77px;
+	bottom: 0;
+	position: absolute;
+
+	border-radius: 3px;
+
+	top: 0;
+	margin: auto; 
+	right: 0;
+
+	z-index: 1;
+
+	background-color: rgba(0,0,0,0.7);
+}
+
+player:not(.mademymove) card.inhand.valid {
+	/*border: 2px solid red;
+	border-radius: 4px;*/
+}
+
+card.valid.inhand:not(.moved):hover {
+	bottom: 75px;
 }
 
 player card.moved, cpu#top card.moved {
 	-webkit-transition-duration: 0.5s;
-	bottom: 200px;
-	left: 241px!important;
+	bottom: 390px;
+	left: 0!important;
 }
 
 cpu#left card.moved, cpu#right card.moved {
 	-webkit-transition-duration: 0.5s;
-	bottom: 310px;
-	left: 241px!important;
+	bottom: 610px;
+	left: 0!important;
 }

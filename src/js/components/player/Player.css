@@ -1,10 +1,21 @@
 player {
 	display: block;
 	position: absolute;
-	width: 558px;
-	height: 126px;
+	width: 590px;
+	height: 116px;
 	margin: 0 auto;
 	bottom: 4px;
 	left: 0;
 	right: 0;
+
+	padding: 5px;
+
+	border: 2px solid rgba(0,0,0,0);
+	border-radius: 15px;
+}
+
+
+player.hasturn {
+	border: 2px solid #67c1c1;
+	box-shadow: 0px 0px 30px 5px #67c1c1;
 }

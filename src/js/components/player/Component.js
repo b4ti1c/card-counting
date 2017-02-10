@@ -1,5 +1,5 @@
 goog.provide('app.components.Player.Component');
-goog.require('app.base.Component');
+goog.require('app.components.Cardplayer.Component');
 goog.require('app.components.Player.ViewModel');
 goog.require('app.components.Player.Template');
 
@@ -7,13 +7,13 @@ goog.require('app.components.Player.Template');
 
 /**
  * @constructor
- * @extends {app.base.Component}
+ * @extends {app.components.Cardplayer.Component}
  * 
  */
 app.components.Player.Component = function(){
 	goog.base(this);
 };
-goog.inherits(app.components.Player.Component, app.base.Component);
+goog.inherits(app.components.Player.Component, app.components.Cardplayer.Component);
 
 
 /**

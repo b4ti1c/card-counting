@@ -1,0 +1,113 @@
+tablecenter {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 1px;
+	height: 360px;
+	width: 396px;
+	margin: auto;
+}
+
+tablecard {
+	display: block;
+	position: absolute;
+	width: 77px;
+	height: 116px;
+
+	-webkit-transition-duration: 0.5s;
+}
+
+tablecard.left {
+    left: 17px;
+	top: 0;
+    bottom: 9px;
+    margin: auto 0;
+	-webkit-transform: rotate(90deg);
+	-webkit-transform-origin: 50% 53%;
+}
+
+tablecard.top {
+	top: 2px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+
+	-webkit-transform: rotate(180deg);
+}
+
+tablecard.right {
+	right: 16px;
+	top: 0;
+    bottom: 13px;
+    margin: auto 0;
+	-webkit-transform: rotate(270deg);
+	-webkit-transform-origin: 50% 53%;
+}
+
+tablecard.left.firstturn {
+    left: 17px;
+	top: 0;
+    bottom: 9px;
+    margin: auto 0;
+	-webkit-transform: rotate(90deg);
+	-webkit-transform-origin: 50% 53%;
+}
+
+tablecard.top.firstturn {
+	top: 2px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+
+	-webkit-transform: rotate(180deg);
+}
+
+tablecard.right.firstturn {
+	right: 16px;
+	top: 0;
+    bottom: 13px;
+    margin: auto 0;
+	-webkit-transform: rotate(270deg);
+	-webkit-transform-origin: 50% 53%;
+}
+
+tablecard.bottom {
+	bottom: 2px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+tablecard.winnerleft {
+	left: -440px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	z-index: 10;
+}
+
+tablecard.winnertop {
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: -370px;
+	z-index: 10;
+}
+
+tablecard.winnerright {
+	right: -440px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	z-index: 10;
+}
+
+tablecard.winnerbottom {
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: -370px;
+	z-index: 10;
+}
