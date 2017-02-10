@@ -1,10 +1,10 @@
-# gcc-knockout
-Boilerplate for using Google Closure Compiler with KnockoutJS
+# card-counting
+A spades implementation for developing AI using KocJS
 
 ## Installation
 
-    git clone --recursive https://github.com/batilc1/gcc-knockout.git
-    cd gcc-knockout
+    git clone --recursive https://github.com/batilc1/card-counting.git
+    cd card-counting
     npm install
 
 ## Building for Development
@@ -17,7 +17,7 @@ Then just type
     
     grunt test
 
-And the project files will be symlinked under `gcc-knockout/dist/` folder. Now run a server at that folder and everything should be good to go. 
+And the project files will be symlinked under `card-counting/dist/` folder. Now run a server at that folder and everything should be good to go. 
 
     cd dist/
     http-server
