@@ -1,0 +1,28 @@
+cpu {
+	display: block;
+	position: absolute;
+	width: 558px;
+	height: 126px;
+}
+
+cpu#left {
+	bottom: 390px;
+	left: -275px;
+	-webkit-transform: rotate(90deg);
+	-webkit-transform-origin: bottom center;
+}
+
+cpu#top {
+	margin: 0 auto;
+	top: 4px;
+	left: 0;
+	right: 0;
+	-webkit-transform: rotate(180deg);
+}
+
+cpu#right {
+	bottom: 390px;
+	right: -275px;
+	-webkit-transform: rotate(270deg);
+	-webkit-transform-origin: bottom center;
+}

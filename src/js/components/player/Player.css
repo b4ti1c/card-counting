@@ -1,0 +1,10 @@
+player {
+	display: block;
+	position: absolute;
+	width: 558px;
+	height: 126px;
+	margin: 0 auto;
+	bottom: 4px;
+	left: 0;
+	right: 0;
+}

@@ -1,10 +1,10 @@
 html, body, view {
     top: 0;
     bottom: 0;
-    width: 100%;
+    width: 1024px;
+    height: 768px;
     position: absolute;
     background: #ffffff;
-    overflow: hidden;
 }
 
 body {
@@ -13,4 +13,12 @@ body {
     font-weight: 200;
     background: white;
     font-size: 36px;
+}
+
+.db {
+    display: block;
+}
+
+.dib {
+    display: inline-block;
 }

@@ -16,3 +16,8 @@ goog.require('goog.events.EventHandler');
 app.Bootstrapper = function(){
 	app.Application.getInstance();
 };  
+
+
+document.addEventListener('DOMContentLoaded', function(){
+	new app.Bootstrapper();
+});
